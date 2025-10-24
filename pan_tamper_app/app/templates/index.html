@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Pan Card Tampering</title>
+  <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffd6e8, #ffe6f2, #fff0f6);
+      font-family: "Poppins", sans-serif;
+      color: #444;
+    }
+    nav {
+      background-color: #ff8ecf !important;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    nav h5 {
+      color: white;
+      font-weight: 600;
+    }
+    .container {
+      background: white;
+      border-radius: 25px;
+      padding: 40px;
+      margin-top: 80px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    .container::before,
+    .container::after {
+      content: "🎀";
+      font-size: 32px;
+      position: absolute;
+      color: #ff80bf;
+    }
+    .container::before {
+      top: -20px;
+      left: -15px;
+    }
+    .container::after {
+      bottom: -20px;
+      right: -15px;
+    }
+    label {
+      color: #d63384;
+      font-weight: 600;
+    }
+    .btn {
+      background-color: #ff5fbf !important;
+      border-radius: 12px;
+    }
+    .btn:hover {
+      background-color: #ff80c7 !important;
+    }
+    .btn-large {
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
+      transition: transform 0.2s ease-in-out;
+    }
+    .btn-large:hover {
+      transform: scale(1.05);
+    }
+    h5 {
+      color: #ff4da6;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 80px;
+      color: #d63384;
+      font-style: italic;
+    }
+    .fade-in {
+      animation: fadeIn 1.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <nav class="lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" class="brand-logo center"><h5>🎀 Pan Card Tampering 🎀</h5></a>
+      <div style="margin-left: 800px">
+      	   Made with 💕 by <a class="orange-text text-lighten-3">Krittika Sen</a>
+      </div>
+    </div>
+  </nav>
+  <div class="section no-pad-bot fade-in" id="index-banner">
+    <div class="container">
+      <div class="row">
+        <form action='/' method="post" class="col s12" enctype="multipart/form-data">
+          <div class="row">
+            <div class="input-field col s3"></div>
+            <div class="input-field col s5" style="margin-left: 20px; margin-top: 40px">
+              <label for="first_name"><b>Upload Pan Card Image</b></label><br>
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>Browse</span>
+                  <input type="file" name="file_upload" id="file_upload" />
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text" placeholder="Upload file" name="file_name" id="file_name" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row center">
+            <button type="submit" class="btn-large">✨ Check ✨</button>
+          </div>
+        </form>
+
+        <div style="text-align: center; padding-top: 50px">
+      		<h5>{{pred}}</h5>
+     	  </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">🌸Hoping this was helpful. Have a nice day.🌸</div>
+  <script src="./static/js/materialize.js"></script>
+  <script type="text/javascript">
+    document.getElementById('file_upload').onchange = function () {
+      document.getElementById('file_name').value = this.value.slice(12,100);
+    };
+  </script>
+</body>
+</html>
+
