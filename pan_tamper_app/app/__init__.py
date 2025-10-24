@@ -1,12 +1,16 @@
 from flask import Flask
+import os
 
 app = Flask(__name__)
+env = os.environ.get("FLASK_ENV", "production").lower()
 
-if app.config["ENV"] == "production":
+if env == "development":
     app.config.from_object("config.DevelopmentConfig")
-elif app.config["ENV"] == "testing":
+elif env == "testing":
     app.config.from_object("config.TestingConfig")
-else:
+else: 
     app.config.from_object("config.ProductionConfig")
 
 from app import views
+
+
