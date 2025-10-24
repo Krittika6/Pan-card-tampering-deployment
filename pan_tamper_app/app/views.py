@@ -53,7 +53,8 @@ def index():
         cv2.imwrite(os.path.join(app.config['GENERATED_FILE'], 'image_diff.jpg'), diff)
         cv2.imwrite(os.path.join(app.config['GENERATED_FILE'], 'image_thresh.jpg'), thresh)
 
-        return render_template('index.html', pred=str(round(score*100, 2)) + '%' + ' correct')
+        return render_template('index.html', pred=str(round(score*100, 2)) + '%' + ' correct. GUIDE: An image is not tampered if it is 80% or more correct')
+
 
 
 
