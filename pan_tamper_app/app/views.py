@@ -56,7 +56,4 @@ def index():
         return render_template('index.html', pred=str(round(score*100, 2)) + '%' + ' correct')
 
 
-# Run the app
-if __name__ == '__main__':
-    app.run(debug=True)
 
